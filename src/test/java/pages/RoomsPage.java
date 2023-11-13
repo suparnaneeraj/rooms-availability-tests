@@ -27,12 +27,26 @@ public class RoomsPage{
 		calculateOccupancy.click();
 	}
 	
-	public void getRoomsAndAmount()
+	public String[] getRoomsAndAmount()
 	{
 		String text=roomsAndAmountText.getText();
-		//System.out.println(text);
+		String[] resultArrayRoomsAmount=extractValues(text);
+		return resultArrayRoomsAmount;
+		
 	}
-	
+	public String[] extractValues(String text)
+	{
+		String textWithoutNewline=text.replace("\n",":");
+		String arrayRoomsAndAmount[]=new String[4];
+		String arrayValues[]=textWithoutNewline.split(":");
+		int j=0;
+		for(int i=1;i<arrayValues.length;i+=2) {
+			arrayRoomsAndAmount[j]=arrayValues[i].trim();
+			j++;
+		}
+		return arrayRoomsAndAmount;
+
+	}
 }
 	
 	
