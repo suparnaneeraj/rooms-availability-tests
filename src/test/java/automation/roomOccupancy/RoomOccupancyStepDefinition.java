@@ -37,11 +37,11 @@ public class RoomOccupancyStepDefinition {
 
 
     @Then("^the count of free rooms \"([^\"]*)\" \"([^\"]*)\" along with their usage \"([^\"]*)\" \"([^\"]*)\" should be displayed$")
-    public void the_number_of_premium_rooms_occupied_along_with_the_amount_earned_should_be_displayed(String freePremiumRooms,String freeEconomyRooms,String usagePremium,String usageEconomy) throws InterruptedException
+    public void the_count_of_free_rooms_along_with_their_usage_should_be_displayed(String freePremiumRooms,String freeEconomyRooms,String usagePremium,String usageEconomy) throws InterruptedException
     {
         String resultRoomsAndAmount[]=roomsPage.getRoomsAndAmount();
-        Assert.assertTrue("Incorrect Free Premium Room Count",resultRoomsAndAmount[0].equals(freePremiumRooms));
-        Assert.assertTrue("Incorrect Free Economy Room Count",resultRoomsAndAmount[1].equals(freeEconomyRooms));
+        Assert.assertTrue("Incorrect Free Premium room count",resultRoomsAndAmount[0].equals(freePremiumRooms));
+        Assert.assertTrue("Incorrect Free Economy room count",resultRoomsAndAmount[1].equals(freeEconomyRooms));
         Assert.assertTrue("Incorrect Premium Usage Values",resultRoomsAndAmount[2].equals(usagePremium));
         Assert.assertTrue("Incorrect Economy usage values",resultRoomsAndAmount[3].equals(usagePremium));
        
