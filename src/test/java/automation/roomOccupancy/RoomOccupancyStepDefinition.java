@@ -19,13 +19,13 @@ public class RoomOccupancyStepDefinition {
     @Before
     public void setUp()
     {
-    	helper.CreateWebDriver();
+    	helper.createDriver();
     	helper.openApplication();
     }
     @Given("^the user enters the premium room count \"([^\"]*)\" economy room count \"([^\"]*)\"$")
     public void the_user_enters_the_premium_room_count_economy_room_count(String premiumRoomCount, String economyRoomCount) throws InterruptedException
     {
-    	roomsPage=new RoomsPage(helper.getDriver());
+    	roomsPage=new RoomsPage(helper.driver);
     	roomsPage.enterRoomsCount(premiumRoomCount, economyRoomCount);
     }
 
@@ -43,14 +43,14 @@ public class RoomOccupancyStepDefinition {
         Assert.assertTrue("Incorrect Free Premium room count",resultRoomsAndAmount[0].equals(freePremiumRooms));
         Assert.assertTrue("Incorrect Free Economy room count",resultRoomsAndAmount[1].equals(freeEconomyRooms));
         Assert.assertTrue("Incorrect Premium Usage Values",resultRoomsAndAmount[2].equals(usagePremium));
-        Assert.assertTrue("Incorrect Economy usage values",resultRoomsAndAmount[3].equals(usagePremium));
+        Assert.assertTrue("Incorrect Economy usage values",resultRoomsAndAmount[3].equals(usageEconomy));
        
     }
    
     @After
     public void tearDown(){
 
-    	helper.getDriver().close();
+    	helper.driver.close();
     }
 }
     
