@@ -19,7 +19,9 @@ public class RoomsPage{
 		PageFactory.initElements(driver, this);
 	}
 	public void enterRoomsCount(String premiumRoomCount,String economyRoomCount) {
+		premiumRooms.clear();
 		premiumRooms.sendKeys(premiumRoomCount);
+		economyRooms.clear();
 		economyRooms.sendKeys(economyRoomCount);
 	}
 	
@@ -43,6 +45,9 @@ public class RoomsPage{
 		for(int i=1;i<arrayValues.length;i+=2) {
 			arrayRoomsAndAmount[j]=arrayValues[i].trim();
 			j++;
+		}
+		for(int i=0;i<arrayRoomsAndAmount.length;i++) {
+			System.out.println(arrayRoomsAndAmount[i]);
 		}
 		return arrayRoomsAndAmount;
 
